@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<!-- @author Luis M. Pacheco -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+
+    <!-- Formulario para añadir tareas -->
+    <form action="/add" method="post">
+        <input type="text" name="nombre" placeholder="Nueva tarea" required>
+        <button type="submit">Añadir Tarea</button>
+    </form>
+
+    <h2>Tareas añadidas</h2>
+    <ul>
+        <li th:each="tarea : ${tareas}">
+            <span th:text="${tarea.nombre}"></span>
+        </li>
+    </ul>
+</body>
+</html>
